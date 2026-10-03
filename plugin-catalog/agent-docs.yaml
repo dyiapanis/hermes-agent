@@ -1,0 +1,24 @@
+name: agent-docs
+repo: https://github.com/dyiapanis/agent-docs
+sha: 54b69e5e0dd7354aa9c37a34b283eff95601fbde
+description: >-
+  Portable document lifecycle MCP suite - create (.docx/.xlsx/.pptx/.pdf/.odt/.ods/.odp;
+  PDF via weasyprint HTML/CSS), convert (pandoc + texlive-xetex), read (anydoc with
+  LiteParse/Tesseract OCR fallback). Portable Agent Plugins v1 package (mcp.json, stdio
+  server) - tools reach Hermes through the MCP bridge; no native registration.
+  Disclosure - no runtime network egress in plugin code; first run bootstraps a Python
+  venv (~/.venvs/docs or PLUGIN_DATA/venv) and pip-installs dependencies from PyPI
+  (5-minute bound); doc_convert requires system pandoc + texlive-xetex; PDF editing is
+  local PyMuPDF text search + redaction (no AI service); outputs default to ~/Documents
+  (DOCS_OUTPUT_DIR overridable).
+maintainer: dyiapanis
+tier: community
+category: tools
+docs_url: https://github.com/dyiapanis/agent-docs#readme
+version: "2.0.0"
+platforms: []
+capabilities:
+  provides_tools: []
+  provides_hooks: []
+  provides_middleware: []
+  requires_env: []
