@@ -455,6 +455,12 @@ DANGEROUS_PATTERNS = [
     (_CMDPOS + r'yarn\s+' + _PKG_OPTS + r'(?:global\s+)?(?:uninstall|remove)\b', "package manager uninstall"),
     (_CMDPOS + r'pip(?:3)?\s+' + _PKG_OPTS + r'uninstall\b', "package manager uninstall"),
     (_CMDPOS + r'brew\s+' + _PKG_OPTS + r'(?:uninstall|remove|rm)\b', "package manager uninstall"),
+    # Browser-driver binary downloads (playwright/puppeteer) write multi-hundred-MB
+    # browser builds into the user's cache (~/.cache/ms-playwright, ~/.cache/puppeteer).
+    # They skirt package-manager install flags because the binary name isn't a package
+    # manager. Flag for approval — the fleet uses Camofox/Wolverine for browser work;
+    # a chromium download is almost always an agent improvisation, not operator intent.
+    (_CMDPOS + r'(?:\S+/)?(?:python3(?:\.\d+)?(?:\s+-m)?|npx\s+)?\s*playwright\s+install\b', "browser-driver binary download (playwright install)"),
 ]
 
 
