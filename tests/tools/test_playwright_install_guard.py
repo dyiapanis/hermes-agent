@@ -1,6 +1,6 @@
-"""The playwright guard: browser-driver binary downloads require approval (2026-10-08
-incident — a review subagent ran `playwright install chromium` unflagged and quietly
-downloaded 641MB of chromium into ~/.cache/ms-playwright)."""
+"""The playwright guard: browser-driver binary downloads (playwright/puppeteer
+install) require approval — they write multi-hundred-MB browser builds into
+the user cache and are almost always agent improvisation, not operator intent."""
 import sys, os
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", ".."))
 from tools.approval_detection import detect_dangerous_command
