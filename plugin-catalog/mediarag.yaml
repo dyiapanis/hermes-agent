@@ -1,12 +1,13 @@
 name: mediarag
 repo: https://github.com/dyiapanis/mediarag
-sha: dc7c1ea22b49702a2f8a2dd80b2d31509eb98ed7
+sha: a58543e273111338d4f1240fcd6ce32d3fb4ac03
 description: >-
-  Search your own photos, audio, notes and subtitles by meaning, from any
-  MCP-capable agent. Ask "where is the clip where I talked about the landing"
-  and get ranked hits with snippets. Everything stays on your machine: the
-  corpus is a local SQLite file, and the server is a stdio process the client
-  spawns. It does not open a network listener and it does not phone home.
+  Search your own documents and media by meaning, from any MCP-capable agent.
+  A contract, a pdf, a photo and a clip sit in one index. Ask "which file
+  mentions the landing" or "where is the clip where I talked about it" and
+  get ranked hits with snippets. Everything stays on your machine: the corpus
+  is a local SQLite file, and the server is a stdio process the client spawns.
+  It does not open a network listener and it does not phone home.
   Before the first search, run `python scripts/fetch_model.py`. That downloads
   about 480MB of embedding weights into the Hugging Face cache. A sharded cache
   is copied once to ~/.cache/mediarag/onnx-real so the runtime can load it.
@@ -24,7 +25,7 @@ maintainer: dyiapanis
 tier: community
 category: tools
 docs_url: https://github.com/dyiapanis/mediarag#readme
-version: "0.1.2"
+version: "0.1.3"
 readme: true
 platforms:
   - linux
