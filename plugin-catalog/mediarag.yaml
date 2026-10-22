@@ -1,0 +1,40 @@
+name: mediarag
+repo: https://github.com/dyiapanis/mediarag
+sha: dc7c1ea22b49702a2f8a2dd80b2d31509eb98ed7
+description: >-
+  Search your own photos, audio, notes and subtitles by meaning, from any
+  MCP-capable agent. Ask "where is the clip where I talked about the landing"
+  and get ranked hits with snippets. Everything stays on your machine: the
+  corpus is a local SQLite file, and the server is a stdio process the client
+  spawns. It does not open a network listener and it does not phone home.
+  Before the first search, run `python scripts/fetch_model.py`. That downloads
+  about 480MB of embedding weights into the Hugging Face cache. A sharded cache
+  is copied once to ~/.cache/mediarag/onnx-real so the runtime can load it.
+  After that, search runs offline. Disclosure — Python dependencies are
+  onnxruntime, numpy, pillow, tokenizers, transformers, torch, torchvision and
+  huggingface_hub (torch is the large one). Optional system tools, used only
+  for the lane you invoke: ffmpeg, pandoc, pdftotext, rclone, curl. It reads
+  the file paths you pass and writes the corpus under ~/.mediarag (or
+  MEDIARAG_ROOT). Adding an http(s) source downloads that URL (capped at 256MB).
+  The Raindrop adapter, if you use it, calls api.raindrop.io with the optional
+  RAINDROP_API_TOKEN; inside Hermes that token is resolved through the profile
+  secret scope and is not inherited from another profile. No telemetry. Linux
+  is the tested platform.
+maintainer: dyiapanis
+tier: community
+category: tools
+docs_url: https://github.com/dyiapanis/mediarag#readme
+version: "0.1.2"
+readme: true
+platforms:
+  - linux
+capabilities:
+  provides_tools:
+    - mediarag_search
+    - mediarag_add_note
+    - mediarag_ingest_dir
+    - mediarag_add_source
+    - mediarag_status
+  provides_hooks: []
+  provides_middleware: []
+  requires_env: []
